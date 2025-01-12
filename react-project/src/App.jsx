@@ -3,10 +3,11 @@ import './App.css'
 let language = "JavaScript";
 let moon = "🌙"
 
-function Header() {
+function Header(props) {
   return (
     <header>
-      <h1>Chloe's Page</h1>
+      <h1>{props.name}'s Page</h1>
+      <p>Copyright {props.year}</p>
     </header>
   )
 }
@@ -14,9 +15,9 @@ function Header() {
 function App() {
   return (
     <>
-      <Header />
+      <Header name="Alex" year={new Date().getFullYear()}/>
       <main>
-        <h2>We serve the most delicious food around</h2>
+        <h2>Welcome</h2>
       </main>
     </>
   )
