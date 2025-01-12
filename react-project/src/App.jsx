@@ -25,13 +25,17 @@ console.log(dishObjects);
 
 function Main({dishes}) {
   return (
-    <main>
-      <img src={cloud} height={200} alt="A photo of cloud"></img>
-      <ul>
-        {dishes.map((dish) => (<li key={dish.i} style={{listStyleType: "none"}}>{dish.title}</li>))}
-      </ul>
-    </main>
-
+    <>
+      <div>
+        <h2>Welcome to my page</h2>
+      </div>
+      <main>
+        <img src={cloud} height={200} alt="A photo of cloud"></img>
+        <ul>
+          {dishes.map((dish) => (<li key={dish.i} style={{listStyleType: "none"}}>{dish.title}</li>))}
+        </ul>
+      </main>
+    </>
   )
 }
 
