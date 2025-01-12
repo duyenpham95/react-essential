@@ -1,8 +1,5 @@
 import './App.css'
 
-let language = "JavaScript";
-let moon = "🌙"
-
 function Header({name, year}) {
   return (
     <header>
@@ -16,11 +13,19 @@ const items = [
   "Apples", 
   "Bananas",
   "Oranges"
-]
+];
+
+const dishObjects = items.map((dish, i) => ({
+  id: i,
+  title: dish
+}));
+
+console.log(dishObjects);
+
 function Main({dishes}) {
   return (
     <ul>
-      {dishes.map((dish) => (<li style={{listStyleType: "none"}}>{dish}</li>))}
+      {dishes.map((dish) => (<li key={dish.i} style={{listStyleType: "none"}}>{dish.title}</li>))}
     </ul>
   )
 }
@@ -29,7 +34,7 @@ function App() {
   return (
     <>
       <Header name="Alex" year={new Date().getFullYear()}/>
-      <Main dishes={items}/>
+      <Main dishes={dishObjects}/>
     </>
   )
 }
