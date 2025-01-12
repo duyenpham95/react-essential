@@ -1,4 +1,5 @@
 import './App.css'
+import cloud from './images/cloud.png'
 
 function Header({name, year}) {
   return (
@@ -24,9 +25,13 @@ console.log(dishObjects);
 
 function Main({dishes}) {
   return (
-    <ul>
-      {dishes.map((dish) => (<li key={dish.i} style={{listStyleType: "none"}}>{dish.title}</li>))}
-    </ul>
+    <main>
+      <img src={cloud} height={200} alt="A photo of cloud"></img>
+      <ul>
+        {dishes.map((dish) => (<li key={dish.i} style={{listStyleType: "none"}}>{dish.title}</li>))}
+      </ul>
+    </main>
+
   )
 }
 
