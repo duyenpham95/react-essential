@@ -12,13 +12,24 @@ function Header({name, year}) {
   )
 }
 
+const items = [
+  "Apples", 
+  "Bananas",
+  "Oranges"
+]
+function Main({dishes}) {
+  return (
+    <ul>
+      {dishes.map((dish) => (<li style={{listStyleType: "none"}}>{dish}</li>))}
+    </ul>
+  )
+}
+
 function App() {
   return (
     <>
       <Header name="Alex" year={new Date().getFullYear()}/>
-      <main>
-        <h2>Welcome</h2>
-      </main>
+      <Main dishes={items}/>
     </>
   )
 }
