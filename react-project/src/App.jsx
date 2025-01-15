@@ -1,3 +1,4 @@
+import { useState } from "react";
 import './App.css'
 import cloud from './images/cloud.png'
 
@@ -40,8 +41,12 @@ function Main({dishes}) {
 }
 
 function App() {
+  const [status, setStatus] = useState("Open");
+
   return (
     <>
+      <h1>The restaurant is currently {status}</h1>
+      <button onClick={() => setStatus("Closed")}>Close Restaurant</button>
       <Header name="Alex" year={new Date().getFullYear()}/>
       <Main dishes={dishObjects}/>
     </>
