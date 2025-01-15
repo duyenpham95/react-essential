@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import './App.css'
 import cloud from './images/cloud.png'
 
@@ -42,17 +42,18 @@ function Main({dishes, openStatus, onStatus}) {
 }
 
 function App() {
-  const [status, setStatus] = useState(true);
+  // const [status, setStatus] = useState(true);
+  const [status, toggle] = useReducer((status) => !status, true);
 
   return (
     <>
       <h1>The restaurant is currently {status ? "open" : "closed"}</h1>
-      <button onClick={() => setStatus(!status)}>{status ? "Close": "Open"} Restaurant</button>
+      <button onClick={toggle}>{status ? "Close": "Open"} Restaurant</button>
       <Header name="Alex" year={new Date().getFullYear()}/>
       <Main 
       dishes={dishObjects} 
       openStatus={status} 
-      onStatus={setStatus}/>
+      onStatus={toggle}/>
     </>
   )
 }
