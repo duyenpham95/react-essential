@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 import './App.css'
 import cloud from './images/cloud.png'
 
@@ -42,9 +42,10 @@ function Main({dishes, openStatus, onStatus}) {
 }
 
 function App() {
-  // const [status, setStatus] = useState(true);
   const [status, toggle] = useReducer((status) => !status, true);
-
+  useEffect(() => {
+    console.log(`The restaurant is ${status ? "open" : "closed"}.`)
+  }, [])
   return (
     <>
       <h1>The restaurant is currently {status ? "open" : "closed"}</h1>
